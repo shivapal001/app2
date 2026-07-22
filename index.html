@@ -187,12 +187,6 @@ a{color:inherit;text-decoration:none;}
       <button class="btn btn-black" onclick="goto('signin')">Log In</button>
       <button class="btn btn-outline" onclick="goto('signup')">Create Account</button>
     </div>
-    <div class="divider">or continue with</div>
-    <div class="social-row">
-      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><svg width="19" height="19" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6c-2 1.5-4.6 2.4-7.7 2.4-5.3 0-9.7-3.1-11.3-7.5l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.6 5.6C42.1 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg></button>
-      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook" style="color:#1877F2;font-size:1.35rem"></i></button>
-      <button class="social-btn" onclick="socialLogin('apple')" aria-label="Continue with Apple"><i class="fab fa-apple"></i></button>
-    </div>
   </div>
 
   <!-- 3. SIGN IN -->
@@ -218,12 +212,6 @@ a{color:inherit;text-decoration:none;}
         <button class="btn btn-black" type="submit" id="signin-btn"><span>Log In</span></button>
       </div>
     </form>
-    <div class="divider">or continue with</div>
-    <div class="social-row">
-      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><svg width="19" height="19" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6c-2 1.5-4.6 2.4-7.7 2.4-5.3 0-9.7-3.1-11.3-7.5l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.6 5.6C42.1 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg></button>
-      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook" style="color:#1877F2;font-size:1.35rem"></i></button>
-      <button class="social-btn" onclick="socialLogin('apple')" aria-label="Continue with Apple"><i class="fab fa-apple"></i></button>
-    </div>
     <div class="foot-note">Don't have an account? <a href="#" class="link-accent" onclick="goto('signup');return false;">Sign Up</a></div>
   </div>
 
@@ -256,12 +244,6 @@ a{color:inherit;text-decoration:none;}
         <button class="btn btn-lime" type="submit" id="signup-btn"><span>Create Account</span></button>
       </div>
     </form>
-    <div class="divider">or continue with</div>
-    <div class="social-row">
-      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><svg width="19" height="19" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6c-2 1.5-4.6 2.4-7.7 2.4-5.3 0-9.7-3.1-11.3-7.5l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.6 5.6C42.1 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg></button>
-      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook" style="color:#1877F2;font-size:1.35rem"></i></button>
-      <button class="social-btn" onclick="socialLogin('apple')" aria-label="Continue with Apple"><i class="fab fa-apple"></i></button>
-    </div>
     <div class="terms-note">By signing up, you agree to our <a href="#" class="link-accent">Terms &amp; Conditions</a> and <a href="#" class="link-accent">Privacy Policy</a></div>
   </div>
 
