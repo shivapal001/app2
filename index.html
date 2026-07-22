@@ -45,10 +45,19 @@ a{color:inherit;text-decoration:none;}
   background:var(--bg);
   overflow:hidden;
 }
+.status-bar{
+  position:absolute; top:0; left:0; right:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:calc(env(safe-area-inset-top) + .55rem) 1.5rem .5rem;
+  font-size:.8rem; font-weight:700; color:var(--text);
+  pointer-events:none;
+}
+.status-bar .sb-icons{display:flex;align-items:center;gap:.32rem;font-size:.72rem;}
+.status-bar .sb-icons .fa-battery-full{font-size:.95rem;}
 .auth-screen{
   position:absolute; inset:0;
   display:flex; flex-direction:column;
-  padding:1.6rem 1.5rem calc(env(safe-area-inset-bottom) + 1.6rem);
+  padding:calc(env(safe-area-inset-top) + 2.5rem) 1.5rem calc(env(safe-area-inset-bottom) + 1.6rem);
   overflow-y:auto;
   -webkit-overflow-scrolling:touch;
   opacity:0; visibility:hidden;
@@ -61,7 +70,7 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* ── Decorative blobs ── */
-.blob{position:absolute; border-radius:50%; background:radial-gradient(circle at 30% 30%,var(--accent2),var(--accent)); opacity:.55; pointer-events:none;}
+.blob{position:absolute; border-radius:50%; background:#EAF6A8; opacity:.7; pointer-events:none;}
 
 /* ── Splash ── */
 #screen-splash{align-items:center;justify-content:center;text-align:center;}
@@ -78,10 +87,10 @@ a{color:inherit;text-decoration:none;}
 
 /* ── Welcome ── */
 #screen-welcome{justify-content:flex-start;}
-.welcome-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.85rem;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-top:1.2rem;}
+.welcome-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.85rem;font-weight:800;letter-spacing:-.03em;line-height:1.25;}
 .welcome-title span{color:var(--accent-dark);-webkit-text-stroke:.4px var(--text);}
 .welcome-sub{color:var(--muted);font-size:.92rem;margin-top:.6rem;line-height:1.5;}
-.welcome-illust{margin:1.8rem auto;width:100%;max-width:280px;}
+.welcome-illust{margin:1.4rem auto;width:100%;max-width:230px;}
 
 /* ── Headings shared by signin/signup/verify ── */
 .auth-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.7rem;font-weight:800;letter-spacing:-.03em;}
@@ -153,6 +162,15 @@ a{color:inherit;text-decoration:none;}
 
 <div class="auth-shell">
 
+  <div class="status-bar">
+    <span>9:41</span>
+    <span class="sb-icons">
+      <i class="fas fa-signal"></i>
+      <i class="fas fa-wifi"></i>
+      <i class="fas fa-battery-full"></i>
+    </span>
+  </div>
+
   <!-- 1. SPLASH -->
   <div class="auth-screen active" id="screen-splash">
     <div class="blob b1"></div>
@@ -166,7 +184,7 @@ a{color:inherit;text-decoration:none;}
   <div class="auth-screen" id="screen-welcome">
     <div class="welcome-title">Welcome to<br><span>Posthire</span></div>
     <div class="welcome-sub">The smart way to connect Creators and Brands.</div>
-    <div class="welcome-illust" id="welcome-illust"></div>
+    <div class="welcome-illust"><img src="welcome-illustration.png" alt="Creator and brand connecting on Posthire" style="width:100%;height:auto;display:block"></div>
     <div class="grow"></div>
     <div class="stack">
       <button class="btn btn-black" onclick="goto('signin')">Log In</button>
@@ -299,36 +317,7 @@ const DASHBOARD_URL = 'dashboard.html'; // handles role selection (Creator/Found
 const LOGO_SRC = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjMTExMTExIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MCw1MCkiPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMCkiPgogICAgICA8cG9seWdvbiBwb2ludHM9Ii04LC00NCAwLC00NCA4LC0zNCAwLC0zNCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjAsLTM0IDgsLTM0IDAsLTI0IC04LC0yNCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjQsLTM0IDEyLC0zNCAyMCwtMjQgMTIsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMTIsLTI0IDIwLC0yNCAxMiwtMTQgNCwtMTQiLz4KICAgIDwvZz4KICAgIDxnIHRyYW5zZm9ybT0icm90YXRlKDYwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMTIwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMTgwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMjQwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMzAwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+';
 document.getElementById('splash-logo-img').src = LOGO_SRC;
 
-// ── Simple original illustration (two flat avatars + a laptop/phone) — not a copy of any reference art ──
-document.getElementById('welcome-illust').innerHTML = `
-<svg viewBox="0 0 280 190" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="140" cy="172" rx="120" ry="12" fill="#EDEBDD"/>
-  <circle cx="72" cy="60" r="34" fill="#F0FF6E"/>
-  <circle cx="205" cy="50" r="26" fill="#111111" opacity="0.08"/>
-  <g transform="translate(30,72)">
-    <rect x="0" y="46" width="86" height="52" rx="14" fill="#111111"/>
-    <circle cx="43" cy="30" r="26" fill="#FFD9B8"/>
-    <path d="M17 24c0-16 13-27 26-27s26 11 26 27c-8-4-18-6-26-6s-18 2-26 6z" fill="#2B2320"/>
-    <rect x="18" y="70" width="50" height="30" rx="6" fill="#E9FF39"/>
-  </g>
-  <g transform="translate(150,58)">
-    <rect x="0" y="54" width="80" height="56" rx="14" fill="#333333"/>
-    <circle cx="40" cy="30" r="26" fill="#D9A066"/>
-    <path d="M14 26c0-16 12-28 26-28s26 12 26 28c0 4-1 8-2 11-6-8-14-13-24-13s-18 5-24 13c-1-3-2-7-2-11z" fill="#1A1310"/>
-    <rect x="14" y="80" width="52" height="30" rx="6" fill="#F0FF6E"/>
-  </g>
-  <g transform="translate(96,18)">
-    <rect x="0" y="0" width="34" height="24" rx="5" fill="#fff" stroke="#111111" stroke-width="2"/>
-    <path d="M2 22l6 8 6-8" fill="#fff" stroke="#111111" stroke-width="2"/>
-    <circle cx="9" cy="11" r="2" fill="#111"/>
-    <circle cx="17" cy="11" r="2" fill="#111"/>
-    <circle cx="25" cy="11" r="2" fill="#111"/>
-  </g>
-  <g transform="translate(196,4)">
-    <circle cx="12" cy="12" r="12" fill="#111111"/>
-    <path d="M6 12l4 4 8-8" stroke="#E9FF39" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
-</svg>`;
+// ── Welcome illustration is now the user-provided image (see welcome-illustration.png) ──
 
 // ── Toast ──
 function toast(msg, type='info'){
