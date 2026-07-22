@@ -12,14 +12,14 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
-  --bg:        #F7F5EA;
+  --bg:        #FBFAF6;
   --text:      #111111;
   --muted:     #6F6F6F;
   --muted2:    #9A9A9A;
   --border:    #E8E8E8;
-  --accent:      #E9FF39;
-  --accent-dark: #DDF92B;
-  --accent2:     #F0FF6E;
+  --accent:      #DCE82E;
+  --accent-dark: #C3D400;
+  --accent2:     #EAF07A;
   --danger:      #FF4D4F;
   --radius:  1.5rem;
   --radius-sm: 0.875rem;
@@ -70,7 +70,7 @@ a{color:inherit;text-decoration:none;}
 }
 
 /* ── Decorative blobs ── */
-.blob{position:absolute; border-radius:50%; background:#EAF6A8; opacity:.7; pointer-events:none;}
+.blob{position:absolute; border-radius:50%; background:var(--accent); opacity:.14; pointer-events:none;}
 
 /* ── Splash ── */
 #screen-splash{align-items:center;justify-content:center;text-align:center;}
@@ -138,13 +138,11 @@ a{color:inherit;text-decoration:none;}
 .foot-note{text-align:center;font-size:.85rem;color:var(--muted);margin-top:1.4rem;}
 .terms-note{text-align:center;font-size:.75rem;color:var(--muted2);margin-top:1.1rem;line-height:1.5;}
 
-/* ── OTP boxes ── */
-.otp-row{display:flex;gap:.6rem;margin-top:1.6rem;justify-content:space-between;}
-.otp-box{width:2.9rem;height:3.3rem;border-radius:.9rem;border:1.5px solid var(--border);background:#fff;text-align:center;font-size:1.3rem;font-weight:700;outline:none;transition:border-color .2s,box-shadow .2s;}
-.otp-box:focus{border-color:var(--accent-dark);box-shadow:0 0 0 3px rgba(233,255,57,.35);}
-.otp-box.filled{border-color:var(--text);}
+/* ── Verify email icon ── */
+.verify-icon{width:4.2rem;height:4.2rem;border-radius:50%;background:var(--accent2);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;}
+.verify-icon i{font-size:1.7rem;color:var(--text);}
 
-.verify-status{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--muted);margin-top:1.1rem;}
+.verify-status{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--muted);margin-top:1.4rem;}
 .verify-status i{color:var(--accent-dark);}
 
 /* ── Toast ── */
@@ -192,8 +190,8 @@ a{color:inherit;text-decoration:none;}
     </div>
     <div class="divider">or continue with</div>
     <div class="social-row">
-      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><i class="fab fa-google" style="color:#EA4335"></i></button>
-      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook-f" style="color:#1877F2"></i></button>
+      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><svg width="19" height="19" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6c-2 1.5-4.6 2.4-7.7 2.4-5.3 0-9.7-3.1-11.3-7.5l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.6 5.6C42.1 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg></button>
+      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook" style="color:#1877F2;font-size:1.35rem"></i></button>
       <button class="social-btn" onclick="socialLogin('apple')" aria-label="Continue with Apple"><i class="fab fa-apple"></i></button>
     </div>
   </div>
@@ -223,8 +221,8 @@ a{color:inherit;text-decoration:none;}
     </form>
     <div class="divider">or continue with</div>
     <div class="social-row">
-      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><i class="fab fa-google" style="color:#EA4335"></i></button>
-      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook-f" style="color:#1877F2"></i></button>
+      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><svg width="19" height="19" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6c-2 1.5-4.6 2.4-7.7 2.4-5.3 0-9.7-3.1-11.3-7.5l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.6 5.6C42.1 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg></button>
+      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook" style="color:#1877F2;font-size:1.35rem"></i></button>
       <button class="social-btn" onclick="socialLogin('apple')" aria-label="Continue with Apple"><i class="fab fa-apple"></i></button>
     </div>
     <div class="foot-note">Don't have an account? <a href="#" class="link-accent" onclick="goto('signup');return false;">Sign Up</a></div>
@@ -261,8 +259,8 @@ a{color:inherit;text-decoration:none;}
     </form>
     <div class="divider">or continue with</div>
     <div class="social-row">
-      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><i class="fab fa-google" style="color:#EA4335"></i></button>
-      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook-f" style="color:#1877F2"></i></button>
+      <button class="social-btn" onclick="socialLogin('google')" aria-label="Continue with Google"><svg width="19" height="19" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.9 29.3 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.7-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.5 15.9 18.9 13 24 13c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34.6 6.1 29.6 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.5 0 10.5-2.1 14.3-5.6l-6.6-5.6c-2 1.5-4.6 2.4-7.7 2.4-5.3 0-9.7-3.1-11.3-7.5l-6.6 5.1C9.6 39.6 16.3 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.1-4.1 5.5l6.6 5.6C42.1 35.8 44 30.3 44 24c0-1.3-.1-2.7-.4-3.5z"/></svg></button>
+      <button class="social-btn" onclick="socialLogin('facebook')" aria-label="Continue with Facebook"><i class="fab fa-facebook" style="color:#1877F2;font-size:1.35rem"></i></button>
       <button class="social-btn" onclick="socialLogin('apple')" aria-label="Continue with Apple"><i class="fab fa-apple"></i></button>
     </div>
     <div class="terms-note">By signing up, you agree to our <a href="#" class="link-accent">Terms &amp; Conditions</a> and <a href="#" class="link-accent">Privacy Policy</a></div>
@@ -271,20 +269,13 @@ a{color:inherit;text-decoration:none;}
   <!-- 5. VERIFY EMAIL -->
   <div class="auth-screen" id="screen-verify">
     <button class="auth-back" onclick="goto('welcome')" aria-label="Back"><i class="fas fa-chevron-left"></i></button>
+    <div class="verify-icon"><i class="fas fa-envelope-circle-check"></i></div>
     <div class="auth-h1">Verify Your Email</div>
-    <div class="auth-sub">We've sent a verification link to<br><b id="verify-email-label" style="color:var(--text)"></b></div>
-    <div class="otp-row" id="otp-row">
-      <input class="otp-box" maxlength="1" inputmode="numeric" data-i="0">
-      <input class="otp-box" maxlength="1" inputmode="numeric" data-i="1">
-      <input class="otp-box" maxlength="1" inputmode="numeric" data-i="2">
-      <input class="otp-box" maxlength="1" inputmode="numeric" data-i="3">
-      <input class="otp-box" maxlength="1" inputmode="numeric" data-i="4">
-      <input class="otp-box" maxlength="1" inputmode="numeric" data-i="5">
-    </div>
+    <div class="auth-sub">We've sent a verification link to<br><b id="verify-email-label" style="color:var(--text)"></b>. Open it on this device to continue.</div>
     <div class="verify-status" id="verify-status"><i class="fas fa-circle-notch fa-spin"></i> <span>Waiting for verification…</span></div>
     <div style="font-size:.82rem;color:var(--muted);margin-top:.9rem">Didn't receive it? <a href="#" class="link-accent" id="resend-link" onclick="handleResend(event)">Resend</a> <span id="resend-timer" style="color:var(--muted2)"></span></div>
     <div class="grow"></div>
-    <button class="btn btn-lime" id="verify-btn" onclick="handleVerifyCheck()"><span>Verify Email</span></button>
+    <button class="btn btn-lime" id="verify-btn" onclick="handleVerifyCheck()"><span>I've Verified — Continue</span></button>
   </div>
 
 </div>
@@ -314,7 +305,7 @@ const auth = getAuth(fbApp);
 const DASHBOARD_URL = 'dashboard.html'; // handles role selection (Creator/Founder) + onboarding + routing
 
 // ── Logo (reused from dashboard app) ──
-const LOGO_SRC = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjMTExMTExIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MCw1MCkiPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMCkiPgogICAgICA8cG9seWdvbiBwb2ludHM9Ii04LC00NCAwLC00NCA4LC0zNCAwLC0zNCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjAsLTM0IDgsLTM0IDAsLTI0IC04LC0yNCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjQsLTM0IDEyLC0zNCAyMCwtMjQgMTIsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMTIsLTI0IDIwLC0yNCAxMiwtMTQgNCwtMTQiLz4KICAgIDwvZz4KICAgIDxnIHRyYW5zZm9ybT0icm90YXRlKDYwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMTIwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMTgwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMjQwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMzAwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+';
+const LOGO_SRC = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBmaWxsPSIjRENFODJFIj4KICA8ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg1MCw1MCkiPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMCkiPgogICAgICA8cG9seWdvbiBwb2ludHM9Ii04LC00NCAwLC00NCA4LC0zNCAwLC0zNCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjAsLTM0IDgsLTM0IDAsLTI0IC04LC0yNCIvPgogICAgICA8cG9seWdvbiBwb2ludHM9IjQsLTM0IDEyLC0zNCAyMCwtMjQgMTIsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMTIsLTI0IDIwLC0yNCAxMiwtMTQgNCwtMTQiLz4KICAgIDwvZz4KICAgIDxnIHRyYW5zZm9ybT0icm90YXRlKDYwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMTIwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMTgwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMjQwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMzAwKSI+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iLTgsLTQ0IDAsLTQ0IDgsLTM0IDAsLTM0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iMCwtMzQgOCwtMzQgMCwtMjQgLTgsLTI0Ii8+CiAgICAgIDxwb2x5Z29uIHBvaW50cz0iNCwtMzQgMTIsLTM0IDIwLC0yNCAxMiwtMjQiLz4KICAgICAgPHBvbHlnb24gcG9pbnRzPSIxMiwtMjQgMjAsLTI0IDEyLC0xNCA0LC0xNCIvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+';
 document.getElementById('splash-logo-img').src = LOGO_SRC;
 
 // ── Welcome illustration is now the user-provided image (see welcome-illustration.png) ──
@@ -491,7 +482,6 @@ let _resendTimer = null, _resendLeft = 0, _pollInterval = null;
 
 function startVerifyScreen(email){
   document.getElementById('verify-email-label').textContent = email || '';
-  document.querySelectorAll('.otp-box').forEach(b=>{ b.value=''; b.classList.remove('filled'); });
   startResendCooldown(45);
   startVerifyPolling();
 }
@@ -573,27 +563,6 @@ function startVerifyPolling(){
 function stopVerifyPolling(){
   if(_pollInterval){ clearInterval(_pollInterval); _pollInterval = null; }
 }
-
-// ── OTP boxes: auto-advance / backspace nav / paste support ──
-(function initOtp(){
-  const boxes = Array.from(document.querySelectorAll('.otp-box'));
-  boxes.forEach((box, i)=>{
-    box.addEventListener('input', ()=>{
-      box.value = box.value.replace(/[^0-9]/g,'').slice(0,1);
-      box.classList.toggle('filled', !!box.value);
-      if(box.value && boxes[i+1]) boxes[i+1].focus();
-    });
-    box.addEventListener('keydown', (e)=>{
-      if(e.key === 'Backspace' && !box.value && boxes[i-1]){ boxes[i-1].focus(); }
-    });
-    box.addEventListener('paste', (e)=>{
-      e.preventDefault();
-      const text = (e.clipboardData.getData('text')||'').replace(/[^0-9]/g,'').slice(0,6);
-      text.split('').forEach((ch,idx)=>{ if(boxes[idx]){ boxes[idx].value=ch; boxes[idx].classList.add('filled'); } });
-      if(boxes[text.length]) boxes[text.length].focus();
-    });
-  });
-})();
 </script>
 </body>
 </html>
